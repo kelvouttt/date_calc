@@ -3,13 +3,13 @@ package main
 import (
 	"fmt"
 	"time"
+
+	"github.com/spf13/calc/helper"
 )
 
 func main() {
-	dateToday := time.Now()
-
-	currentTime := time.Now().Format("2006-01-02")
-	fmt.Printf("Today is %v\n", currentTime)
+	today := helper.TodayDate().Format("02/01/2006")
+	fmt.Printf("Today is %v\n", today)
 
 	// Finding the dates difference between 2 point of dates
 	differenceDur := differenceDate()
