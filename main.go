@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	today := helper.TodayDate().Format("02/01/2006")
+	today := helper.Today().Format("02/01/2006")
 	fmt.Printf("Today is %v\n", today)
 
 	// Finding the dates difference between 2 point of dates
