@@ -11,16 +11,18 @@ func main() {
 	today := helper.Today()
 	fmt.Printf("Today is %v\n", today.Format("02/01/2006"))
 
-	// Finding the dates difference between 2 point of dates
-	differenceDur := differenceDate()
-	fmt.Printf("The difference between the 2 dates are %v days or %v months or %v years.\n",
-		int(differenceDur.Hours())/24,
-		int(differenceDur.Hours())/24/30,
-		int(differenceDur.Hours()/24/365))
+	for {
+		// Finding the dates difference between 2 point of dates
+		differenceDur := differenceDate()
+		fmt.Printf("The difference between the 2 dates are %v days or %v months or %v years.\n",
+			int(differenceDur.Hours())/24,
+			int(differenceDur.Hours())/24/30,
+			int(differenceDur.Hours()/24/365))
 
-	// Adding/subtracting days, months, years
-	updatedDate := newDate()
-	fmt.Printf("It's %v", updatedDate)
+		// Adding/subtracting days, months, years
+		updatedDate := newDate()
+		fmt.Printf("It's %v\n", updatedDate)
+	}
 }
 
 // This function does not take any arguments, though it will prompt a user input of 2 different dates.
@@ -36,7 +38,6 @@ func differenceDate() time.Duration {
 
 	firstDate := helper.Parser(t1)
 	secondDate := helper.Parser(t2)
-
 	difference := secondDate.Sub(firstDate)
 
 	return difference
