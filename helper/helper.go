@@ -10,5 +10,7 @@ func Today() time.Time {
 }
 
 func Parser(date string) time.Time {
+	stringDate, _ := time.Parse("02/01/2006", date)
 
+	return stringDate
 }

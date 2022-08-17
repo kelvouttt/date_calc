@@ -34,8 +34,8 @@ func differenceDate() time.Duration {
 	fmt.Println("Enter the second date:")
 	fmt.Scan(&t2)
 
-	firstDate, _ := time.Parse("02/01/2006", t1)
-	secondDate, _ := time.Parse("02/01/2006", t2)
+	firstDate := helper.Parser(t1)
+	secondDate := helper.Parser(t2)
 
 	difference := secondDate.Sub(firstDate)
 
@@ -57,7 +57,7 @@ func newDate() string {
 	fmt.Println("Enter year for calculation")
 	fmt.Scan(&year)
 
-	parsedDate, _ := time.Parse("02/01/2006", dates)
+	parsedDate := helper.Parser(dates)
 	parsedNewDate := parsedDate.AddDate(year, month, day).Format("02/01/2006")
 
 	return parsedNewDate
