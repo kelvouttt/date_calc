@@ -12,16 +12,22 @@ func main() {
 	fmt.Printf("Today is %v\n", today.Format("02/01/2006"))
 
 	for {
-		// Finding the dates difference between 2 point of dates
-		differenceDur := differenceDate()
-		fmt.Printf("The difference between the 2 dates are %v days or %v months or %v years.\n",
-			int(differenceDur.Hours())/24,
-			int(differenceDur.Hours())/24/30,
-			int(differenceDur.Hours()/24/365))
+		input := userInput()
 
-		// Adding/subtracting days, months, years
-		updatedDate := newDate()
-		fmt.Printf("It's %v\n", updatedDate)
+		if input == 1 {
+			// Finding the dates difference between 2 point of dates
+			differenceDur := differenceDate()
+			fmt.Printf("The difference between the 2 dates are %v days or %v months or %v years.\n",
+				int(differenceDur.Hours())/24,
+				int(differenceDur.Hours())/24/30,
+				int(differenceDur.Hours()/24/365))
+		} else if input == 2 {
+			// Adding/subtracting days, months, years
+			updatedDate := newDate()
+			fmt.Printf("It's %v\n", updatedDate)
+		} else {
+			fmt.Println("Please choose option 1 or 2")
+		}
 	}
 }
 
@@ -62,4 +68,15 @@ func newDate() string {
 	parsedNewDate := parsedDate.AddDate(year, month, day).Format("02/01/2006")
 
 	return parsedNewDate
+}
+
+func userInput() int {
+	var input int
+
+	fmt.Println("1. Calculating date difference")
+	fmt.Println("2. Adding/subtracting date")
+	fmt.Println("Input:")
+	fmt.Scan(&input)
+
+	return input
 }
