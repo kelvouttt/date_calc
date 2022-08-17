@@ -45,14 +45,15 @@ func newDate() string {
 	var month int
 	var day int
 
-	fmt.Println("Please enter a date:")
-	fmt.Scan(&dates)
-	fmt.Println("Enter year for calculation")
-	fmt.Scan(&year)
-	fmt.Println("Enter month for calculation")
-	fmt.Scan(&month)
 	fmt.Println("Enter days for calculation")
 	fmt.Scan(&day)
+	fmt.Println("Enter month for calculation")
+	fmt.Scan(&month)
+	fmt.Println("Enter year for calculation")
+	fmt.Scan(&year)
+	fmt.Println("Please enter a date:")
+	fmt.Scan(&dates)
+		
 
 	parsedDate, _ := time.Parse("02/01/2006", dates)
 	parsedNewDate := parsedDate.AddDate(year, month, day).Format("02/01/2006")
