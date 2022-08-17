@@ -6,32 +6,19 @@ import (
 )
 
 func main() {
-
-	date := time.Date(2022, 8, 2, 0, 0, 0, 0, time.Local)
-
 	currentTime := time.Now().Format("2006-01-02")
-	fmt.Printf("Today is %v and the type is %T\n", currentTime, currentTime)
-
-	// From the print statement below, can be observed that time.Format returns string data type
-	t, _ := time.Parse("2006-01-02", currentTime)
-	fmt.Printf("Parsed time value: %v and type %T\n", t, t)
-
-	// Adding/subtracting days, months, years
-	fmt.Printf("One day later %v with type %T\n",
-		t.AddDate(1, 1, 1).Format("2006-01-02"), t)
+	fmt.Printf("Today is %v\n", currentTime)
 
 	// Finding the dates difference between 2 point of dates
-	difference := t.Sub(date)
-	fmt.Printf("Days difference between t1: %v and t2: %v with difference of %v days and type %T.\n",
-		date,
-		t,
-		int64(difference.Hours()/24),
-		date)
-
 	differenceDur := differenceDate()
 	fmt.Printf("The difference between the 2 dates are %v days or %v years.\n",
 		int(differenceDur.Hours())/24,
+		int(differenceDur.Hours())/24/12
 		int(differenceDur.Hours()/24/365))
+
+	// Adding/subtracting days, months, years
+	updatedDate := newDate()
+	fmt.Printf("It's %v", updatedDate)
 }
 
 // This function does not take any arguments, though it will prompt a user input of 2 different dates.
@@ -50,4 +37,25 @@ func differenceDate() time.Duration {
 	difference := secondDate.Sub(firstDate)
 
 	return difference
+}
+
+func newDate() string {
+	var dates string
+	var year int
+	var month int
+	var day int
+
+	fmt.Println("Please enter a date:")
+	fmt.Scan(&dates)
+	fmt.Println("Enter year for calculation")
+	fmt.Scan(&year)
+	fmt.Println("Enter month for calculation")
+	fmt.Scan(&month)
+	fmt.Println("Enter days for calculation")
+	fmt.Scan(&day)
+
+	parsedDate, _ := time.Parse("02/01/2006", dates)
+	parsedNewDate := parsedDate.AddDate(year, month, day).Format("02/01/2006")
+
+	return parsedNewDate
 }
