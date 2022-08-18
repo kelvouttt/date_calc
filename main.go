@@ -25,8 +25,10 @@ func main() {
 			// Adding/subtracting days, months, years
 			updatedDate := newDate()
 			fmt.Printf("It's %v\n", updatedDate)
+		} else if input == 3 {
+			break
 		} else {
-			fmt.Println("Please choose option 1 or 2")
+			fmt.Println("Please choose option 1 or 2 to start.")
 		}
 	}
 }
@@ -73,8 +75,10 @@ func newDate() string {
 func userInput() int {
 	var input int
 
+	fmt.Println("Enter the number to start using the program or to exit the program.")
 	fmt.Println("1. Calculating date difference")
 	fmt.Println("2. Adding/subtracting date")
+	fmt.Println("3. Exit")
 	fmt.Println("Input:")
 	fmt.Scan(&input)
 
