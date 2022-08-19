@@ -17,7 +17,7 @@ func main() {
 		if input == 1 {
 			// Finding the dates difference between 2 point of dates
 			differenceDur := differenceDate()
-			fmt.Printf("The difference between the 2 dates are %v days or %v months or %v years.\n",
+			fmt.Printf("The difference between the 2 dates are %v days or %v months or %v year(s).\n",
 				int(differenceDur.Hours())/24,
 				int(differenceDur.Hours())/24/30,
 				int(differenceDur.Hours()/24/365))
